@@ -1,11 +1,13 @@
 package arrayvisitors.adt;
+/**
+ * defines an interface for MyArray
+ * has methods like adding element, growing size of array and printing
+ */
 
 public interface MyArrayI{
-	private int array[];
-	private int size;
-	private int count;
 
-	public add(int data);
-	public growSize();
+	public void add(int data);
+	public void growSize();
+	public void printelements();
 
 }

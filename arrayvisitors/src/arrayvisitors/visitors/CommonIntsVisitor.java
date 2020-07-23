@@ -28,7 +28,6 @@ public class CommonIntsVisitor implements Visitor{
 		// for finding common integers and passing to results
 		for (MyArray array : myArrayList.getArrays()) {
 			for (int x : array.getArray()) {
-
 				if (integers.contains(x))
 					commonIntegers.add(x);
 

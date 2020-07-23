@@ -23,7 +23,12 @@ public class MyArray implements MyArrayI, Element {
 	// function to get complete array
 
 	public int[] getArray() {
-		return array;
+		int[] array1 = new int[numofelems];
+		for (int i = 0; i < numofelems; i++) {
+
+			array1[i]=(array[i]);
+		}
+		return array1;
 	}
 
 	//accepts the visitor

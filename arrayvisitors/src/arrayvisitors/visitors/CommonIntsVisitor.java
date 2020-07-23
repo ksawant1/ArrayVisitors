@@ -7,6 +7,7 @@ import java.util.Set;
 
 /**
  * a visitor class that finds common integers stored in myarraylist and sends to result for printing
+ * @author Krupa Sawant
  */
 public class CommonIntsVisitor implements Visitor{
 	Results results;
@@ -24,7 +25,6 @@ public class CommonIntsVisitor implements Visitor{
 	private void findCommonIntsVisitor(MyArrayList myArrayList) {
 		Set<Integer> integers = new LinkedHashSet<>();
 		Set<Integer> commonIntegers = new LinkedHashSet<>();
-
 		// for finding common integers and passing to results
 		for (MyArray array : myArrayList.getArrays()) {
 			for (int x : array.getArray()) {
@@ -37,4 +37,10 @@ public class CommonIntsVisitor implements Visitor{
 		results.storeCommonInteger(commonIntegers);
 	}
 
+	@Override
+	public String toString() {
+		return "CommonIntsVisitor{" +
+				"results=" + results +
+				'}';
+	}
 }

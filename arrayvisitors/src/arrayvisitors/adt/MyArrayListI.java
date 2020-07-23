@@ -1,8 +1,9 @@
 package arrayvisitors.adt;
-
 /**
- * interface for functions of Myarraylist
+ * defines an interface for MyArrayList
+ * has methods like get all arrays
+ * @author Krupa Sawant
  */
 public interface MyArrayListI{
-	public MyArray[] getArrays() ;
+      MyArray[] getArrays() ;
 }

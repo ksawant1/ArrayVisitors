@@ -1,25 +1,27 @@
 package arrayvisitors.util;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collection;
+/**
+ * Results is a utility that prints to corresponding output files and std console
+ * @author Krupa Sawant
+ */
 public class Results implements FileDisplayInterface, StdoutDisplayInterface {
 	Collection<Integer> commonInteger;
 	Collection<Integer> missingInteger ;
-
 	public Results() {
 	}
 
 	/**
-	 * writetoFile() prints the array list into the commonintsout.txt file
+	 * writetoFile() prints the array list into the output text files
 	 */
 
 	public void writeToFile(String filename,int outputtype) throws IOException {
 		try {
 			FileWriter fileWriter = new FileWriter(filename);
 			PrintWriter printWriter = new PrintWriter(fileWriter);
-
+            //writes to output files
 			if(outputtype==1){
 			for (int x : commonInteger) {
 				printWriter.println(x);
@@ -43,6 +45,7 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface {
 		try {
 			System.out.println("Common integers between files");
 			for (int x : commonInteger) {
+
 				System.out.print(x+" ");
 			}
 			System.out.println();
@@ -56,18 +59,23 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface {
 		}
 	}
 
-	/**
-	 * stores the tree in arraylist
-	 *
-	 * @param commonInteger string parameter
-	 */
-	public void storeCommonInteger(Collection<Integer> commonInteger) {
+	 // to store the set passed from CommonIntsVisitor
 
+	public void storeCommonInteger(Collection<Integer> commonInteger) {
 		this.commonInteger = commonInteger;
 	}
 
+	// to store the set passed from MissingIntsVisitor
 	public void storeMissingInteger(Collection<Integer> missingInteger) {
 		this.missingInteger = missingInteger;
+	}
+
+	@Override
+	public String toString() {
+		return "Results{" +
+				"commonInteger=" + commonInteger +
+				", missingInteger=" + missingInteger +
+				'}';
 	}
 }
 

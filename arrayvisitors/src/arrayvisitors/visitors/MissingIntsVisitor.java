@@ -1,7 +1,6 @@
 package arrayvisitors.visitors;
 import arrayvisitors.adt.MyArray;
 import arrayvisitors.util.Results;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -11,6 +10,7 @@ import java.util.stream.IntStream;
 
 /**
  *  a visitor class that finds missing integers stored in myarray and sends to result for printing
+ * @author Krupa Sawant
  */
 public class MissingIntsVisitor implements Visitor {
 	Results results;
@@ -26,11 +26,8 @@ public class MissingIntsVisitor implements Visitor {
 		findMissingInt((MyArray) myElement);
 	}
 
-	public void findMissingInt(MyArray myArray) {
+	private void findMissingInt(MyArray myArray) {
 		Set<Integer> integers = new TreeSet<>();
-
-
-
 		//for counting missing integers in arrays and send to results
 		for (int x : myArray.getArray())
 			integers.add(x);
@@ -39,14 +36,16 @@ public class MissingIntsVisitor implements Visitor {
 				.boxed()
 				.collect(Collectors.toList());
 		missing.addAll(missingInteger);
+		//passes set to results
 		results.storeMissingInteger(missing);
 
-//		List<Integer> num = new ArrayList<>();
-//		for(int i = 10; i <= 99; i++) {
-//			if (!integers.contains(i))
-//				num.add(i);
-//		}
+	}
 
-
+	@Override
+	public String toString() {
+		return "MissingIntsVisitor{" +
+				"results=" + results +
+				", missing=" + missing +
+				'}';
 	}
 }

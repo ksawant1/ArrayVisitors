@@ -2,8 +2,9 @@ package arrayvisitors.visitors;
 
 /**
  * Element interface with accept method
- * both array and arraylist are of type elementaacca
+ * both array and arraylist are of type element
+ * @author Krupa Sawant
  */
 public interface Element {
-	public void accept(Visitor visit);
+	void accept(Visitor visit);
 }

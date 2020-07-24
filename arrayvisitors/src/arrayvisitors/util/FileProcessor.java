@@ -44,6 +44,7 @@ public final class FileProcessor {
 	 * @exception IOException On error encountered when reading from input file.
 	 */
 	public String poll() throws IOException {
+		//MyLogger.getInstance().writeMessage("read lines from file",MyLogger.DebugLevel.FILEPROCESSOR);
 		return reader.readLine();
 	}
 

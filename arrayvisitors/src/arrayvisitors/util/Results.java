@@ -11,6 +11,8 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface {
 	Collection<Integer> commonInteger;
 	Collection<Integer> missingInteger ;
 	public Results() {
+		MyLogger.getInstance().writeMessage("constructor of results", MyLogger.DebugLevel.CONSTRUCTOR);
+
 	}
 
 	/**
@@ -19,6 +21,7 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface {
 
 	public void writeToFile(String filename,int outputtype) throws IOException {
 		try {
+			MyLogger.getInstance().writeMessage("writetoFile() inside Result takes an output file and writes final results to it", MyLogger.DebugLevel.RESULTS);
 			FileWriter fileWriter = new FileWriter(filename);
 			PrintWriter printWriter = new PrintWriter(fileWriter);
             //writes to output files
@@ -43,6 +46,8 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface {
 	 */
 	public void writeToStdout() throws ArrayIndexOutOfBoundsException {
 		try {
+			MyLogger.getInstance().writeMessage("writetoStdout() inside Result writes final results to console", MyLogger.DebugLevel.RESULTS);
+			System.out.println("Printing final output");
 			System.out.println("Common integers between files");
 			for (int x : commonInteger) {
 
@@ -62,12 +67,18 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface {
 	 // to store the set passed from CommonIntsVisitor
 
 	public void storeCommonInteger(Collection<Integer> commonInteger) {
+
 		this.commonInteger = commonInteger;
+		MyLogger.getInstance().writeMessage("storeCommonInteger() inside Result stores commoninteger set to print it", MyLogger.DebugLevel.RESULTS);
+
 	}
 
 	// to store the set passed from MissingIntsVisitor
 	public void storeMissingInteger(Collection<Integer> missingInteger) {
+
 		this.missingInteger = missingInteger;
+		MyLogger.getInstance().writeMessage("storeMissingInteger inside Result stores missing integer set to print it", MyLogger.DebugLevel.RESULTS);
+
 	}
 
 	@Override

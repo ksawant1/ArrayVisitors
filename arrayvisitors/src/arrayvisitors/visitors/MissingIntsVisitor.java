@@ -1,5 +1,6 @@
 package arrayvisitors.visitors;
 import arrayvisitors.adt.MyArray;
+import arrayvisitors.util.MyLogger;
 import arrayvisitors.util.Results;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,15 +20,20 @@ public class MissingIntsVisitor implements Visitor {
 	//sets the result instance
 	public MissingIntsVisitor(Results results) {
 		this.results = results;
+		MyLogger.getInstance().writeMessage("constructor for missingints visitor", MyLogger.DebugLevel.CONSTRUCTOR);
+
 	}
 
 	//mainly for calling findMissingInt()
 	public void visit(Element myElement) {
 		findMissingInt((MyArray) myElement);
+		MyLogger.getInstance().writeMessage("visit() inside missingintsvisitor calls private methods inside the visitor", MyLogger.DebugLevel.MISSINGINTSVISITOR);
+
 	}
 
 	private void findMissingInt(MyArray myArray) {
 		Set<Integer> integers = new TreeSet<>();
+		MyLogger.getInstance().writeMessage("findingMisssingInt() inside missingintsvisitor counts all numbers between 0 and 99 that are missing int two arrays and prints in results", MyLogger.DebugLevel.MISSINGINTSVISITOR);
 		//for counting missing integers in arrays and send to results
 		for (int x : myArray.getArray())
 			integers.add(x);

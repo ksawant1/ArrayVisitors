@@ -1,4 +1,5 @@
 package arrayvisitors.adt;
+import arrayvisitors.util.MyLogger;
 import arrayvisitors.visitors.Element;
 import arrayvisitors.visitors.Visitor;
 import java.util.Arrays;
@@ -13,19 +14,25 @@ public class MyArrayList implements Element, MyArrayListI {
 	MyArray[] arrays;
 
 	//empty constructor
-	public MyArrayList(){}
+	public MyArrayList(){
+		MyLogger.getInstance().writeMessage("constructor of MyArrayList", MyLogger.DebugLevel.CONSTRUCTOR);
+
+	}
 
 	//explicit value constructor
 	public MyArrayList(MyArray... arrays) {
 		this.arrays = arrays;
+		MyLogger.getInstance().writeMessage("constructor of MyArrayList", MyLogger.DebugLevel.CONSTRUCTOR);
 
 	}
 	//to accept the current visitor
 	public void accept(Visitor visitor) {
+		MyLogger.getInstance().writeMessage("accept the visitor", MyLogger.DebugLevel.MYARRAYLIST);
 		visitor.visit(this);
 	}
 	// returns list of all current arrays
 	public MyArray[] getArrays() {
+		MyLogger.getInstance().writeMessage("returns all array objects in arraylist", MyLogger.DebugLevel.MYARRAYLIST);
 		return arrays;
 	}
 

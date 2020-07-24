@@ -2,6 +2,8 @@ package arrayvisitors.visitors;
 import arrayvisitors.adt.MyArrayI;
 import arrayvisitors.exceptions.InputFileEmptyException;
 import arrayvisitors.util.FileProcessor;
+import arrayvisitors.util.MyLogger;
+
 import java.io.IOException;
 /**
  * for filling instances of my array with integers from corresponding input files
@@ -10,13 +12,19 @@ import java.io.IOException;
 public class PopulateMyArrayVisitor implements Visitor {
 	FileProcessor fileProcessor;
 
+	public PopulateMyArrayVisitor() {
+		MyLogger.getInstance().writeMessage("constructor for populatemyarray visitor", MyLogger.DebugLevel.CONSTRUCTOR);
+	}
+
 	public void setFileProcessor(FileProcessor fileProcessor) {
 		this.fileProcessor = fileProcessor;
+		MyLogger.getInstance().writeMessage("set method in populatemyarray takes name of input files for every instance", MyLogger.DebugLevel.POPULATEMYARRAYVISITOR);
 	}
 
 	//mainly calls addarr()
 	public void visit(Element element) {
 		populatearray((MyArrayI) element);
+		MyLogger.getInstance().writeMessage("visit() in populatemyarray mainly calls private methods inside visitor", MyLogger.DebugLevel.POPULATEMYARRAYVISITOR);
 	}
 
 	/**
@@ -27,6 +35,7 @@ public class PopulateMyArrayVisitor implements Visitor {
 	 */
 	private void populatearray(MyArrayI element) {
 		try {
+			MyLogger.getInstance().writeMessage("populatearray() calls poll() for parsing input line by line and adds to myarray instances ", MyLogger.DebugLevel.POPULATEMYARRAYVISITOR);
 			// calls poll() for parsing input line by line
 			String line = fileProcessor.poll();
 			if (line == null)
@@ -39,6 +48,8 @@ public class PopulateMyArrayVisitor implements Visitor {
 				line = fileProcessor.poll();
 
 			}
+			MyLogger.getInstance().writeMessage("if input not right it throws exceptions", MyLogger.DebugLevel.POPULATEMYARRAYVISITOR);
+
 		} catch (InputFileEmptyException e) {
 			System.out.println("input file is empty");
 			System.exit(0);

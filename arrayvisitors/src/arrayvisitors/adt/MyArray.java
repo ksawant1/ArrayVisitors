@@ -1,5 +1,7 @@
 package arrayvisitors.adt;
 import java.util.Arrays;
+
+import arrayvisitors.util.MyLogger;
 import arrayvisitors.visitors.Element;
 import arrayvisitors.visitors.Visitor;
 /**
@@ -17,6 +19,7 @@ public class MyArray implements MyArrayI, Element {
 		array = new int[10];
 		numofelems = 0;
 		sizeofarray = 10;
+		MyLogger.getInstance().writeMessage("constructor of MyArray", MyLogger.DebugLevel.CONSTRUCTOR);
 	}
 
     //clone method
@@ -30,6 +33,7 @@ public class MyArray implements MyArrayI, Element {
 
 	// function to get complete array
 	public int[] getArray() {
+		MyLogger.getInstance().writeMessage("getArray() function to return complete array", MyLogger.DebugLevel.MYARRAY);
 		int[] array1 = new int[numofelems];
 		for (int i = 0; i < getNumofelems(); i++) {
 			array1[i]=(array[i]);
@@ -39,10 +43,13 @@ public class MyArray implements MyArrayI, Element {
 	//accepts the visitor
 	public void accept(Visitor visitor) {
 		visitor.visit(this);
+		MyLogger.getInstance().writeMessage("accept() in MyArray for letting visitors in", MyLogger.DebugLevel.MYARRAY);
+
 	}
 
 	//add element if space is available in array else creates space that is 50 percent more of previous size
 	public void add(int data) {
+		MyLogger.getInstance().writeMessage("add() function to add element if space is available in array else creates space that is 50 percent more of previous size ", MyLogger.DebugLevel.MYARRAY);
 		if (getNumofelems() == getSizeofarray())
 			growSize();
 		array[getNumofelems()] = data;
@@ -51,6 +58,7 @@ public class MyArray implements MyArrayI, Element {
 
     //mainly creates a new array with increased size, copies elements of old array into it and makes the new array as current array
 	public void growSize() {
+		MyLogger.getInstance().writeMessage("growSize() to increase array size after it reaches end of capacity ", MyLogger.DebugLevel.MYARRAY);
 		int newarr[] = null;
 		if (getNumofelems() == getSizeofarray()) {
 			newarr = Arrays.copyOf(array, sizeofarray + sizeofarray / 2);

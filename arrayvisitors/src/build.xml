@@ -50,6 +50,7 @@
             <arg value="${input2}"/> <!-- input file -->
             <arg value="${commonintsout}"/> <!-- output file -->
             <arg value="${missingintsout}"/> <!-- output file -->
+            <arg value="${debug}"/> <!-- debug -->
 
         </java>
     </target>

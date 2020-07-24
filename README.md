@@ -61,10 +61,6 @@ Note: Arguments accept the absolute path of the files.
  ## Use of ArrayList for DataStructure
  1.Major benefit of using arraylist is it is dynamic in size. 
  
- 
-  References: https://www.freecodecamp.org/news/binary-search-trees-bst-explained-with-examples/
-  https://www.moreofless.co.uk/binary-search-tree-bst-java/
-  
 ## Academic Honesty statement:
 
 "I have done this assignment completely on my own. I have not copied

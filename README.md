@@ -1,7 +1,5 @@
 # CSX42: Assignment 4
 **Name:Krupa Sawant
-**B-Number:B00 814013
-** Use of 1 Slack Day
 
 -----------------------------------------------------------------------
 
